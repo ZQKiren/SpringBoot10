@@ -1,7 +1,7 @@
 package com.cybersoft.springboot10.controller;
 
 import com.cybersoft.springboot10.dto.CustomerDTO;
-import com.cybersoft.springboot10.entity.Customer;
+import com.cybersoft.springboot10.entity.Customers;
 import com.cybersoft.springboot10.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +18,9 @@ public class CustomerController {
     private CustomerService customerService;
 
     @PostMapping
-    public ResponseEntity<?> addCustomer(@RequestBody Customer customer) {
-        Customer savedCustomer = customerService.addCustomer(customer);
-        return new ResponseEntity<>(savedCustomer, HttpStatus.CREATED);
+    public ResponseEntity<?> addCustomer(@RequestBody Customers customers) {
+        Customers savedCustomers = customerService.addCustomer(customers);
+        return new ResponseEntity<>(savedCustomers, HttpStatus.CREATED);
     }
 
     @GetMapping

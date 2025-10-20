@@ -7,8 +7,9 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Entity(name = "users")
+@Table
 @Data
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

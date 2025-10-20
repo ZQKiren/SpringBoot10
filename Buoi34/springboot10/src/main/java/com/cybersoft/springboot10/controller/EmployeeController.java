@@ -1,6 +1,6 @@
 package com.cybersoft.springboot10.controller;
 
-import com.cybersoft.springboot10.entity.Employee;
+import com.cybersoft.springboot10.entity.Employees;
 import com.cybersoft.springboot10.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,7 +30,7 @@ public class EmployeeController {
 
         Pageable pageable = PageRequest.of(page, size, sort);
 
-        Page<Employee> employees = employeeService.getAllEmployees(pageable);
+        Page<Employees> employees = employeeService.getAllEmployees(pageable);
         
         return ResponseEntity.ok(employees);
     }
@@ -48,7 +48,7 @@ public class EmployeeController {
             : Sort.by(sortBy).ascending();
         
         Pageable pageable = PageRequest.of(page, size, sort);
-        Page<Employee> employees = employeeService.getEmployeesByDepartment(department, pageable);
+        Page<Employees> employees = employeeService.getEmployeesByDepartment(department, pageable);
         
         return ResponseEntity.ok(employees);
     }
@@ -67,14 +67,14 @@ public class EmployeeController {
             : Sort.by(sortBy).ascending();
         
         Pageable pageable = PageRequest.of(page, size, sort);
-        Page<Employee> employees = employeeService.getEmployeesBySalaryRange(minSalary, maxSalary, pageable);
+        Page<Employees> employees = employeeService.getEmployeesBySalaryRange(minSalary, maxSalary, pageable);
         
         return ResponseEntity.ok(employees);
     }
 
     @PostMapping
-    public ResponseEntity<?> addEmployee(@RequestBody Employee employee) {
-        Employee savedEmployee = employeeService.addEmployee(employee);
-        return ResponseEntity.ok("Thêm nhân viên thành công: " + savedEmployee.getName());
+    public ResponseEntity<?> addEmployee(@RequestBody Employees employees) {
+        Employees savedEmployees = employeeService.addEmployee(employees);
+        return ResponseEntity.ok("Thêm nhân viên thành công: " + savedEmployees.getName());
     }
 }

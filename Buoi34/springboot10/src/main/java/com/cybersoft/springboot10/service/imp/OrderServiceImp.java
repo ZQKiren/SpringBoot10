@@ -1,6 +1,6 @@
 package com.cybersoft.springboot10.service.imp;
 
-import com.cybersoft.springboot10.entity.Order;
+import com.cybersoft.springboot10.entity.Orders;
 import com.cybersoft.springboot10.repository.OrderRepository;
 import com.cybersoft.springboot10.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +16,17 @@ public class OrderServiceImp implements OrderService {
     private OrderRepository orderRepository;
 
     @Override
-    public Order addOrder(Order order) {
-        return orderRepository.save(order);
+    public Orders addOrder(Orders orders) {
+        return orderRepository.save(orders);
     }
 
     @Override
-    public List<Order> getOrdersByDateRange(LocalDate startDate, LocalDate endDate) {
+    public List<Orders> getOrdersByDateRange(LocalDate startDate, LocalDate endDate) {
         return orderRepository.findByCreatedAtBetween(startDate, endDate);
     }
 
     @Override
-    public List<Order> getTop5OrdersByTotalAmount() {
+    public List<Orders> getTop5OrdersByTotalAmount() {
         return orderRepository.findTop5ByTotalAmountDesc();
     }
 }

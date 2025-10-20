@@ -6,8 +6,9 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Entity(name = "orders")
+@Table
 @Data
-public class Order {
+public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

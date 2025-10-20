@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity(name = "employees")
+@Table
 @Data
-public class Employee {
+public class Employees {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

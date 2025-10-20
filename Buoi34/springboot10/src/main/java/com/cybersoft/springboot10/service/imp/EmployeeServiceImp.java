@@ -1,6 +1,6 @@
 package com.cybersoft.springboot10.service.imp;
 
-import com.cybersoft.springboot10.entity.Employee;
+import com.cybersoft.springboot10.entity.Employees;
 import com.cybersoft.springboot10.repository.EmployeeRepository;
 import com.cybersoft.springboot10.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +15,22 @@ public class EmployeeServiceImp implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public Page<Employee> getAllEmployees(Pageable pageable) {
+    public Page<Employees> getAllEmployees(Pageable pageable) {
         return employeeRepository.findAll(pageable);
     }
 
     @Override
-    public Page<Employee> getEmployeesByDepartment(String department, Pageable pageable) {
+    public Page<Employees> getEmployeesByDepartment(String department, Pageable pageable) {
         return employeeRepository.findByDepartment(department, pageable);
     }
 
     @Override
-    public Page<Employee> getEmployeesBySalaryRange(int minSalary, int maxSalary, Pageable pageable) {
+    public Page<Employees> getEmployeesBySalaryRange(int minSalary, int maxSalary, Pageable pageable) {
         return employeeRepository.findBySalaryRange(minSalary, maxSalary, pageable);
     }
 
     @Override
-    public Employee addEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+    public Employees addEmployee(Employees employees) {
+        return employeeRepository.save(employees);
     }
 }

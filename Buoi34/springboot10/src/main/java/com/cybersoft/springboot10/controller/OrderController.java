@@ -1,6 +1,6 @@
 package com.cybersoft.springboot10.controller;
 
-import com.cybersoft.springboot10.entity.Order;
+import com.cybersoft.springboot10.entity.Orders;
 import com.cybersoft.springboot10.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +18,9 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping
-    public ResponseEntity<?> addOrder(@RequestBody Order order) {
-        Order savedOrder = orderService.addOrder(order);
-        return new ResponseEntity<>(savedOrder, HttpStatus.CREATED);
+    public ResponseEntity<?> addOrder(@RequestBody Orders orders) {
+        Orders savedOrders = orderService.addOrder(orders);
+        return new ResponseEntity<>(savedOrders, HttpStatus.CREATED);
     }
 
     @GetMapping("/date-range")
@@ -29,13 +29,13 @@ public class OrderController {
             @RequestParam String endDate) {
         LocalDate start = LocalDate.parse(startDate);
         LocalDate end = LocalDate.parse(endDate);
-        List<Order> orders = orderService.getOrdersByDateRange(start, end);
+        List<Orders> orders = orderService.getOrdersByDateRange(start, end);
         return ResponseEntity.ok(orders);
     }
 
     @GetMapping("/top")
     public ResponseEntity<?> getTop5Orders() {
-        List<Order> topOrders = orderService.getTop5OrdersByTotalAmount();
+        List<Orders> topOrders = orderService.getTop5OrdersByTotalAmount();
         return ResponseEntity.ok(topOrders);
     }
 }

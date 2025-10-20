@@ -1,7 +1,7 @@
 package com.cybersoft.springboot10.service;
 
-import com.cybersoft.springboot10.entity.User;
+import com.cybersoft.springboot10.entity.Users;
 
 public interface UserService {
-    User addUser(User user);
+    Users addUser(Users users);
 }
