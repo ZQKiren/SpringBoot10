@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/bai3
+    username: root
+    password: admin123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+secret-key:
+  jwt: pqadfsI69wu4jCe/nKE9o/GGiXI9BB4x3iO55Myr66E=
+  is-base64: true
+  expiration-ms: 3600000
+
